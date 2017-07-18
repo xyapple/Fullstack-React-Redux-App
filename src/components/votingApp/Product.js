@@ -1,25 +1,29 @@
 import React, {Component} from 'react';
-// const image1 = require('../../resource/floor1-1.jpg');
-// const image2 = require('../../resource/floor1-2.jpg')
+
 class Product extends Component {
     render(){
         return(
             <div className='item'>
                 <div className='image'>
 
-                    <img src={require('../../resource/floor1-1.jpg')} alt='cannot open'/>
+                    <img src={this.props.productImageUrl} alt='cannot open'/>
                 </div>
-                <div>
+                <div className='header'>
+                    {this.props.votes}
+                </div>
                     <div className='description'>
-                        <p>National Park</p>
+                        <a href={this.props.url}>
+                            {this.props.title}
+                        </a>
+                        <p>{this.props.description}</p>
 
                     </div>
                     <div className='extra'>
-                        <span>Submitted by: </span>
-                        <img src={require('../../resource/floor1-2.jpg')} alt='cannot open'/>
+                        <span>Submitted by: XYApple</span>
+                        <img src={this.props.submitterAvatarUrl} alt=''/>
                     </div>
                 </div>
-            </div>
+        
         )
     }
 }
