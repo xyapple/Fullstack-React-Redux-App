@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 
 class Product extends Component {
+    constructor(props){
+        super(props); // always call this first
+         // custom method bindings here
+        this.handleUpVote=this.handleUpVote.bind(this);
+    }
     // Inside `Product`
       handleUpVote() {
         this.props.onVote(this.props.id);
@@ -15,7 +20,7 @@ class Product extends Component {
                 </div>
                 <div className='middle aligned content'>
                 <div className='header'>
-                    <a onClick={this.handleUpVote.bind(this)}>
+                    <a onClick={this.handleUpVote}>
                          <i className='large caret up icon' />
                     </a>
 

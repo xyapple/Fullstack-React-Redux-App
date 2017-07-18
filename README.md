@@ -22,3 +22,5 @@ npm install semantic-ui-css --save
 
 npm install semantic-ui --save-dev
 ```
+Whereas props are immutable and owned by a component’s parent, state is owned by the component.
+Never modify state outside of this.setState(). 

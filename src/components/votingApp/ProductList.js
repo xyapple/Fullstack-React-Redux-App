@@ -55,12 +55,36 @@ function generateVoteCount(){
 }
 
 class ProductList extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            products:[],
+        };
+        //error TypeError: Cannot read property 'products' of undefined
+        this.handleProductUpVote = this.handleProductUpVote.bind(this);
+    }
+    componentDidMount(){
+        this.setState({products:products});
+    }
+    //we have to update the state inside this one
     handleProductUpVote(productId) {
-       console.log(productId + ' was upvoted.');
+       const nextProductVote = this.state.products.map((product)=>{
+           if(product.id === productId){
+               return Object.assign({}, product, {
+                   votes: product.votes + 1,
+               });
+           } else {
+               return product;
+           }
+       });
+       this.setState({
+           products: nextProductVote,
+       })
      }
 
     render(){
-        const productRate = products.sort((a,b)=>(
+        //ProductList is driven by its own state now.
+        const products = this.state.products.sort((a,b)=>(
             b.votes-a.votes
         ))
         const productComponents = products.map((product)=>(
