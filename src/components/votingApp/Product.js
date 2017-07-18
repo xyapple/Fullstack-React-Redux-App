@@ -8,7 +8,12 @@ class Product extends Component {
 
                     <img src={this.props.productImageUrl} alt='cannot open'/>
                 </div>
+                <div className='middle aligned content'>
                 <div className='header'>
+                    <a>
+                         <i className='large caret up icon' />
+                    </a>
+
                     {this.props.votes}
                 </div>
                     <div className='description'>
@@ -19,11 +24,15 @@ class Product extends Component {
 
                     </div>
                     <div className='extra'>
-                        <span>Submitted by: XYApple</span>
-                        <img src={this.props.submitterAvatarUrl} alt=''/>
+                    <span>Submitted by:</span>
+                        <i>
+                            <img  className='ui-avatar-image'
+                                src={this.props.submitterAvatarUrl} alt='cannot open'/>
+                        </i>
+                    </div>
                     </div>
                 </div>
-        
+
         )
     }
 }

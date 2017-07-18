@@ -12,3 +12,8 @@ yarn add antd
 //to remove: yarn remove antd
 ```
 b). create-react-app cannot load image through src! need to do require
+
+c). add semantic-ui-react
+```
+npm install semantic-ui-react --save
+```

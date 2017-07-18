@@ -1,4 +1,13 @@
-export const products=[{
+'use strict'
+window.ImageList=(function(){
+    function generateVoteCount(){
+        return Math.floor((Math.random()*50)+15);
+    }
+
+
+
+
+ const products=[{
     id:1,
     title:'National Park -- Olympic National Park',
     description: 'Amaziong Ocean View',
@@ -43,4 +52,7 @@ export const products=[{
        votes: generateVoteCount(),
        submitterAvatarUrl:'..../images/avatars/daniel.jpg',
        productImageUrl: '../../resource/floor1-5.jpg',
-}]
+},
+];
+return {products: products};
+}());
