@@ -14,6 +14,11 @@ yarn add antd
 b). create-react-app cannot load image through src! need to do require
 
 c). add semantic-ui-react
+https://react.semantic-ui.com/usage
 ```
 npm install semantic-ui-react --save
+
+npm install semantic-ui-css --save
+
+npm install semantic-ui --save-dev
 ```

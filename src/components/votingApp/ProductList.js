@@ -55,7 +55,14 @@ function generateVoteCount(){
 }
 
 class ProductList extends Component {
+    handleProductUpVote(productId) {
+       console.log(productId + ' was upvoted.');
+     }
+
     render(){
+        const productRate = products.sort((a,b)=>(
+            b.votes-a.votes
+        ))
         const productComponents = products.map((product)=>(
             <Product
                 key={'product-' + product.id}
@@ -66,6 +73,7 @@ class ProductList extends Component {
                 votes={product.votes}
                 submitterAvatarUrl={product.submitterAvatarUrl}
                 productImageUrl={product.productImageUrl}
+                onVote = {this.handleProductUpVote}
             />
         ))
         return(

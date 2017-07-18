@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 
 class Product extends Component {
+    // Inside `Product`
+      handleUpVote() {
+        this.props.onVote(this.props.id);
+      }
+
     render(){
         return(
             <div className='item'>
@@ -10,7 +15,7 @@ class Product extends Component {
                 </div>
                 <div className='middle aligned content'>
                 <div className='header'>
-                    <a>
+                    <a onClick={this.handleUpVote.bind(this)}>
                          <i className='large caret up icon' />
                     </a>
 
