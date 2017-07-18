@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 
 class Product extends Component {
-    constructor(props){
-        super(props); // always call this first
-         // custom method bindings here
-        this.handleUpVote=this.handleUpVote.bind(this);
-    }
-    // Inside `Product`
-      handleUpVote() {
-        this.props.onVote(this.props.id);
-      }
+    // constructor(props){
+    //     super(props); // always call this first
+    //      // custom method bindings here
+    //     this.handleUpVote=this.handleUpVote.bind(this);
+    // }
+    // ensure this inside the function is bound to the component
+      handleUpVote=() => (
+          this.props.onVote(this.props.id)
+      );
 
     render(){
         return(
             <div>
-                      
+
             <div className="main ui text container">
 
             <div className='item'>
