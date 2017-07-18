@@ -13,9 +13,12 @@ class Product extends Component {
 
     render(){
         return(
+            <div>
+                      
+            <div className="main ui text container">
+
             <div className='item'>
                 <div className='image'>
-
                     <img src={this.props.productImageUrl} alt='cannot open'/>
                 </div>
                 <div className='middle aligned content'>
@@ -36,13 +39,15 @@ class Product extends Component {
                     <div className='extra'>
                     <span>Submitted by:</span>
                         <i>
-                            <img  className='ui-avatar-image'
+                            <img  className='ui avatar image'
                                 src={this.props.submitterAvatarUrl} alt='cannot open'/>
                         </i>
                     </div>
                     </div>
                 </div>
 
+        </div>
+</div>
         )
     }
 }

@@ -102,6 +102,7 @@ class ProductList extends Component {
         ))
         return(
             <div className='ui unstackable items'>
+                 <h1 className="ui dividing centered header">Popular Products</h1>
                  {productComponents }
             </div>
         )
