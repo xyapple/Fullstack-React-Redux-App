@@ -18,8 +18,9 @@ class EditableTimer extends Component{
                     project={this.props.project}
                     elapsed={this.props.elapsed}
                     runningSince={this.props.runningSince}
+                />
             )
         }
     }
 }
-export default EditableTimer
+export default EditableTimer;
