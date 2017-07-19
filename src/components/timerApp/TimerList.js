@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 import EditableTimer from './EditableTimer';
 
 class TimerList extends Component {
+    
     render() {
+
         const timers = this.props.timers.map((timer)=>(
             <EditableTimer
                 key={timer.id}
