@@ -1,10 +1,11 @@
 //Displays a given timer
 //elapsed in this app is in milliseconds.
 import React, {Component} from 'react';
+import helpers from './helpers.js';
 
 class Timer extends Component {
     render(){
-        //const elasedString = helpers.renderElapsedString(this.props.elapsed);
+        const elasedString = helpers.renderElapsedString(this.props.elapsed);
         return(
             <div className='ui centered card'>
                 <div className='content'>
@@ -16,8 +17,8 @@ class Timer extends Component {
                     </div>
                     <div className='center aligned description'>
                         <h2>
-                            {/* {elasedString} */}
-                            Hi
+                            {elasedString}
+
                         </h2>
                     </div>
                     <div className='extra content'>
