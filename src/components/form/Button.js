@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import isEmail from 'validator/lib/isEmail';
+
 
 class Button extends Component {
      state={
@@ -6,6 +8,7 @@ class Button extends Component {
              name:'',
              email:'',
          },
+         fieldErrors: {},
          people:[]
      }
 
@@ -16,17 +19,32 @@ class Button extends Component {
              fields
           });
      }
+     validate = (person) => {
+        const errors = {};
+        if (!person.name) errors.name = 'Name Required';
+        if (!person.email) errors.email = 'Email Required';
+        if (person.email && !isEmail(person.email)) errors.email = 'Invalid Email';
+        return errors;
+      };
+
      onFormSubmit = (e) => {
-          const people = [ ...this.state.people, this.state.fields];
-          this.setState({
-            people,
-            fields: {
-                name: '',
-                email: ''
-              }
-           });
+          const people = [ ...this.state.people];
+          const person = this.state.fields;
+          const fieldErrors = this.validate(person);
+          this.setState({ fieldErrors });
           e.preventDefault();
+
+          if (Object.keys(fieldErrors).length) return;
+          this.setState({
+              people: people.concat(person),
+              fields:{
+                  name:'',
+                  email:'',
+              },
+          });
+
         };
+
     render(){
         return (
             <div>
@@ -38,12 +56,16 @@ class Button extends Component {
                         value={this.state.fields.name}
                         onChange={this.onInputChange}
                     />
+                    <span style={{ color: 'red' }}>{ this.state.fieldErrors.name }</span>
+
                     <input
                         placeholder='Email'
                         name='email'
                         value={this.state.fields.email}
                         onChange={this.onInputChange}
                     />
+                    <span style={{ color: 'red' }}>{ this.state.fieldErrors.email }</span>
+
                 <input type='submit'/>
                 </form>
                 <ul>

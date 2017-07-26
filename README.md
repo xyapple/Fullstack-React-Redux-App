@@ -35,3 +35,10 @@ in the TimersDashboard load this
 ```
 const uuidv4 = require('uuid/v4');
 ```
+
+#### Form validation
+import validator
+https://www.npmjs.com/package/validator
+```
+npm install validator
+```
