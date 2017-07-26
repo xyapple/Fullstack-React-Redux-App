@@ -2,18 +2,28 @@ import React, {Component} from 'react';
 
 class Button extends Component {
      state={
-         name:'',
-         names:[]
+         fields:{
+             name:'',
+             email:'',
+         },
+         people:[]
      }
-     onNameChange=(e)=>{
-         this.setState({ name: e.target.value });
+
+     onInputChange=(e)=>{
+         const fields = this.state.fields;
+         fields[e.target.name]= e.target.value
+         this.setState({
+             fields
+          });
      }
      onFormSubmit = (e) => {
-
-          const names = [ ...this.state.names, this.state.name ];
+          const people = [ ...this.state.people, this.state.fields];
           this.setState({
-              names: names,
-              name:''
+            people,
+            fields: {
+                name: '',
+                email: ''
+              }
            });
           e.preventDefault();
         };
@@ -22,15 +32,23 @@ class Button extends Component {
             <div>
                 <h1>Sign Up</h1>
                 <form onSubmit={this.onFormSubmit}>
-                    <input type='text'
+                    <input
                         placeholder='Name'
-                        value={this.state.name}
-                        onChange={this.onNameChange}
+                        name='name'
+                        value={this.state.fields.name}
+                        onChange={this.onInputChange}
+                    />
+                    <input
+                        placeholder='Email'
+                        name='email'
+                        value={this.state.fields.email}
+                        onChange={this.onInputChange}
                     />
                 <input type='submit'/>
                 </form>
                 <ul>
-                {this.state.names.map((name , i) =><li key={i}>{name}</li>)}
+                {this.state.people.map(({name , email}, i) =><li key={i}>{name}({email})</li>)}
+
                 </ul>
 
             </div>
